@@ -1,7 +1,10 @@
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
+import { BrowserRouter } from "react-router-dom";
 import { configureTheme } from "@sudobility/design";
 import { generateThemeCSS, radiographTheme } from "@sudobility/design/themes";
+import { SEOHead, SEOHeadProvider } from "@sudobility/seo_lib";
+import { seoHeadConfig } from "./seoHead";
 import App from "./App";
 import "./i18n";
 import "./index.css";
@@ -21,6 +24,14 @@ if (!container) throw new Error("#root not found");
 
 createRoot(container).render(
   <StrictMode>
-    <App />
+    <BrowserRouter>
+      <SEOHeadProvider config={seoHeadConfig}>
+        <SEOHead
+          title={seoHeadConfig.appName}
+          description={seoHeadConfig.appName}
+        />
+        <App />
+      </SEOHeadProvider>
+    </BrowserRouter>
   </StrictMode>,
 );

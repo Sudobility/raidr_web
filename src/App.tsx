@@ -144,5 +144,9 @@ function NotFoundPage() {
  * renders the 404 view, which rewrites the URL to `/404`.
  */
 export default function App() {
-  return window.location.pathname === "/" ? <HomePage /> : <NotFoundPage />;
+  // `/` and a bare language root (`/en`, `/zh-hant`, …) render the landing page; the
+  // lang roots are what the SEO sitemap/prerender crawl. Everything else is the 404 view.
+  const path = window.location.pathname;
+  const isLandingPath = path === "/" || /^\/[a-z]{2}(-[a-z]+)?\/?$/.test(path);
+  return isLandingPath ? <HomePage /> : <NotFoundPage />;
 }
