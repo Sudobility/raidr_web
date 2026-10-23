@@ -5,8 +5,8 @@
     "": {
       "name": "raidr_web",
       "dependencies": {
-        "@sudobility/design": "^1.1.63",
-        "@sudobility/seo_lib": "^0.0.46",
+        "@sudobility/design": "^1.1.66",
+        "@sudobility/seo_lib": "^0.0.47",
         "i18next": "~25.10.10",
         "i18next-browser-languagedetector": "~8.2.1",
         "i18next-http-backend": "~4.0.4",
@@ -195,9 +195,9 @@
 
     "@rollup/rollup-win32-x64-msvc": ["@rollup/rollup-win32-x64-msvc@4.65.0", "", { "os": "win32", "cpu": "x64" }, "sha512-wPWi++K4Bs1VR4XihOhfGi4IGX6Cub7FlerTf8X2v+2BtDHddgSqWCXwGD+h2yAe4/niIhNDwAltioOC+wEogQ=="],
 
-    "@sudobility/design": ["@sudobility/design@1.1.63", "https://npm.pkg.github.com/download/@sudobility/design/1.1.63/fa77125bd9015806a52f990f09f33cf9bebdb67a", { "peerDependencies": { "clsx": ">=2.0.0", "tailwind-merge": ">=2.0.0" } }, "sha512-WkNg96/8erBO+NL/z88/q4yMTenRLKvVht2Cjqr298eSRa0KtumQguXHXf5bDwRiJp4/cqjKuQfo0grZXfb4hA=="],
+    "@sudobility/design": ["@sudobility/design@1.1.66", "https://npm.pkg.github.com/download/@sudobility/design/1.1.66/08ff28eba0e05a9e6916a0aae67ac2c36df590f2", { "peerDependencies": { "clsx": ">=2.0.0", "tailwind-merge": ">=2.0.0" } }, "sha512-E+5HxPKHsujJQMYhtdgtzcGkGtaHhuWpMBd05n+dq/FMihrLT8GeMj6G75XpaxqQmbWYOfkjHEUV2GFcECzeNw=="],
 
-    "@sudobility/seo_lib": ["@sudobility/seo_lib@0.0.46", "https://npm.pkg.github.com/download/@sudobility/seo_lib/0.0.46/8c782120e17531235ba78a6c0ae3153275c35789", { "peerDependencies": { "i18next": ">=23.0.0", "react": "^18.0.0 || ^19.0.0", "react-dom": "^18.0.0 || ^19.0.0", "react-helmet-async": ">=2.0.0", "react-i18next": ">=14.0.0", "react-router-dom": ">=6.0.0" } }, "sha512-zdUlBdmquTZCNIwI1MTe4hR1DbffFhHrs64RzvZfxneK1axCu9ouYPV4CalctJbdvSuS+f9Q8xaeD72eee+xyw=="],
+    "@sudobility/seo_lib": ["@sudobility/seo_lib@0.0.47", "https://npm.pkg.github.com/download/@sudobility/seo_lib/0.0.47/d766739cb3666f6c41cd609790a7a05b8dacedcd", { "peerDependencies": { "i18next": ">=23.0.0", "react": "^18.0.0 || ^19.0.0", "react-dom": "^18.0.0 || ^19.0.0", "react-helmet-async": ">=2.0.0", "react-i18next": ">=14.0.0", "react-router-dom": ">=6.0.0" } }, "sha512-7uyusY9v+EaN1ViTjDPIvm7i0/m/nPjfF2XbbJINSdwF09tLefaTM4RupgwgUMLZhepdNvSyLwzSjU8IAK4bsA=="],
 
     "@types/babel__core": ["@types/babel__core@7.20.5", "", { "dependencies": { "@babel/parser": "^7.20.7", "@babel/types": "^7.20.7", "@types/babel__generator": "*", "@types/babel__template": "*", "@types/babel__traverse": "*" } }, "sha512-qoQprZvz5wQFJwMDqeseRXWv3rqMvhgpbXFfVyWhbx9X47POIA6i/+dXefEmZKoAgOaTdaIgNSMqMIU61yRyzA=="],
 
@@ -399,7 +399,7 @@
 
     "semver": ["semver@6.3.1", "", { "bin": { "semver": "bin/semver.js" } }, "sha512-BR7VvDCVHO+q2xBEWskxS6DJE1qRnb7DxzUrogb71CWoSficBxYsiAGd+Kl0mmq/MprG9yArRkyrQxTO6XjMzA=="],
 
-    "set-cookie-parser": ["set-cookie-parser@2.7.2", "", {}, "sha512-oeM1lpU/UvhTxw+g3cIfxXHyJRc/uidd3yK1P242gzHds0udQBYzs3y8j4gCCW+ZJ7ad0yctld8RYO+bdurlvw=="],
+    "set-cookie-parser": ["set-cookie-parser@2.7.3", "", {}, "sha512-irZHtTqurLna57KQG/s+fzOwv/J6XSH4cs8M/vsrY3uCaQ3S6+QJguAH0WdN47SXlk82voMZ4naWMQf8fdEoIg=="],
 
     "shallowequal": ["shallowequal@1.1.0", "", {}, "sha512-y0m1JoUZSlPAjXVtPPW70aZWfIL/dSP7AFkRnniLCrK/8MDKog3TySTBmckD+RObVxH0v4Tox67+F14PdED2oQ=="],
 
