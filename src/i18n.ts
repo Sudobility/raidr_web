@@ -3,7 +3,7 @@
  * HTTP from public/locales/<lang>/translation.json; the language comes from
  * `?lng=` or the browser, and is not cached.
  */
-import i18n from "i18next";
+import i18n, { type InitOptions } from "i18next";
 import { initReactI18next } from "react-i18next";
 import HttpBackend from "i18next-http-backend";
 import LanguageDetector from "i18next-browser-languagedetector";
@@ -44,7 +44,7 @@ void i18n
     interpolation: { escapeValue: false },
     backend: { loadPath: "/locales/{{lng}}/translation.json" },
     detection: { order: ["querystring", "navigator"], caches: [] },
-  });
+  } as InitOptions);
 
 /** The initialised instance; components use `useTranslation()` instead. */
 export default i18n;
