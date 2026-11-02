@@ -5,8 +5,8 @@
     "": {
       "name": "raidr_web",
       "dependencies": {
-        "@sudobility/design": "^1.1.66",
-        "@sudobility/seo_lib": "^0.0.49",
+        "@sudobility/design": "^1.1.68",
+        "@sudobility/seo_lib": "^0.0.51",
         "i18next": "~26.3.1",
         "i18next-browser-languagedetector": "~8.2.1",
         "i18next-http-backend": "~4.0.4",
@@ -195,9 +195,9 @@
 
     "@rollup/rollup-win32-x64-msvc": ["@rollup/rollup-win32-x64-msvc@4.65.1", "", { "os": "win32", "cpu": "x64" }, "sha512-+Y1Sd49cSDq60UOl8/U2HI0ebUvnSl/hDhMHQn+ouw17yb8fYwMWIazzJ4JFpSkjPE7sj5NTNSX9IoyEqcFfyQ=="],
 
-    "@sudobility/design": ["@sudobility/design@1.1.66", "https://npm.pkg.github.com/download/@sudobility/design/1.1.66/08ff28eba0e05a9e6916a0aae67ac2c36df590f2", { "peerDependencies": { "clsx": ">=2.0.0", "tailwind-merge": ">=2.0.0" } }, "sha512-E+5HxPKHsujJQMYhtdgtzcGkGtaHhuWpMBd05n+dq/FMihrLT8GeMj6G75XpaxqQmbWYOfkjHEUV2GFcECzeNw=="],
+    "@sudobility/design": ["@sudobility/design@1.1.68", "https://npm.pkg.github.com/download/@sudobility/design/1.1.68/289478a5caaadcbf38fa9fdec554edde15b3d9d2", { "peerDependencies": { "clsx": ">=2.0.0", "tailwind-merge": ">=2.0.0" } }, "sha512-AT56VZlPkJSgiNSC4Shl1MOXSX2aKJ/rhDsTOsV+l7TGmlHKMH8D+8epE/at2qO9+LZaPNEEm3lANBehZej64A=="],
 
-    "@sudobility/seo_lib": ["@sudobility/seo_lib@0.0.49", "https://npm.pkg.github.com/download/@sudobility/seo_lib/0.0.49/395c170fb9d443d314d17faf75fe0b816d744bfe", { "peerDependencies": { "i18next": ">=23.0.0", "react": "^18.0.0 || ^19.0.0", "react-dom": "^18.0.0 || ^19.0.0", "react-helmet-async": ">=2.0.0", "react-i18next": ">=14.0.0", "react-router-dom": ">=6.0.0" } }, "sha512-d0TRaHst89aCR2D1N/opSp+N4nOEnkEIJuOJ09+x2htAsjsMIAjSN7AqcIUq6Bel4GA+8xakGjDDii24OCyYRQ=="],
+    "@sudobility/seo_lib": ["@sudobility/seo_lib@0.0.51", "https://npm.pkg.github.com/download/@sudobility/seo_lib/0.0.51/506e29869f284d5d6b4d80c8f50f9d14eef8dd46", { "peerDependencies": { "i18next": ">=23.0.0", "react": "^18.0.0 || ^19.0.0", "react-dom": "^18.0.0 || ^19.0.0", "react-helmet-async": ">=2.0.0", "react-i18next": ">=14.0.0", "react-router-dom": ">=6.0.0" } }, "sha512-xEq5heLnEHlBonBxk38Ea0T0qO/jnSTrXRxCAklL21U9+1BiUDAZgF2rawLS7ru05H++yVJstZfntHfNbMMz8g=="],
 
     "@types/babel__core": ["@types/babel__core@7.20.5", "", { "dependencies": { "@babel/parser": "^7.20.7", "@babel/types": "^7.20.7", "@types/babel__generator": "*", "@types/babel__template": "*", "@types/babel__traverse": "*" } }, "sha512-qoQprZvz5wQFJwMDqeseRXWv3rqMvhgpbXFfVyWhbx9X47POIA6i/+dXefEmZKoAgOaTdaIgNSMqMIU61yRyzA=="],
 
