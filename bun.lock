@@ -5,7 +5,7 @@
     "": {
       "name": "raidr_web",
       "dependencies": {
-        "@sudobility/design": "^1.1.68",
+        "@sudobility/design": "^1.1.69",
         "@sudobility/seo_lib": "^0.0.51",
         "i18next": "~26.3.1",
         "i18next-browser-languagedetector": "~8.2.1",
@@ -195,7 +195,7 @@
 
     "@rollup/rollup-win32-x64-msvc": ["@rollup/rollup-win32-x64-msvc@4.65.1", "", { "os": "win32", "cpu": "x64" }, "sha512-+Y1Sd49cSDq60UOl8/U2HI0ebUvnSl/hDhMHQn+ouw17yb8fYwMWIazzJ4JFpSkjPE7sj5NTNSX9IoyEqcFfyQ=="],
 
-    "@sudobility/design": ["@sudobility/design@1.1.68", "https://npm.pkg.github.com/download/@sudobility/design/1.1.68/289478a5caaadcbf38fa9fdec554edde15b3d9d2", { "peerDependencies": { "clsx": ">=2.0.0", "tailwind-merge": ">=2.0.0" } }, "sha512-AT56VZlPkJSgiNSC4Shl1MOXSX2aKJ/rhDsTOsV+l7TGmlHKMH8D+8epE/at2qO9+LZaPNEEm3lANBehZej64A=="],
+    "@sudobility/design": ["@sudobility/design@1.1.69", "https://npm.pkg.github.com/download/@sudobility/design/1.1.69/8dc2caf34fda3cd4ccdf67a6e9aecfa40f013fcd", { "peerDependencies": { "clsx": ">=2.0.0", "tailwind-merge": ">=2.0.0" } }, "sha512-MUW9bSwis7thR9GBhqtil6RzgTZVPymqy4GAqFGDBUX7o1FcfmlhnDWcc4acR2Hf3OqkxHGm9gFuMW83/ufuiA=="],
 
     "@sudobility/seo_lib": ["@sudobility/seo_lib@0.0.51", "https://npm.pkg.github.com/download/@sudobility/seo_lib/0.0.51/506e29869f284d5d6b4d80c8f50f9d14eef8dd46", { "peerDependencies": { "i18next": ">=23.0.0", "react": "^18.0.0 || ^19.0.0", "react-dom": "^18.0.0 || ^19.0.0", "react-helmet-async": ">=2.0.0", "react-i18next": ">=14.0.0", "react-router-dom": ">=6.0.0" } }, "sha512-xEq5heLnEHlBonBxk38Ea0T0qO/jnSTrXRxCAklL21U9+1BiUDAZgF2rawLS7ru05H++yVJstZfntHfNbMMz8g=="],
 
