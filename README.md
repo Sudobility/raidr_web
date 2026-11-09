@@ -7,15 +7,52 @@ capture extension, the reconstruction CLI, and the agent skill.
 
 ```bash
 bun install
-bun run dev        # http://localhost:5140
-bun run build      # → dist/
-bun run preview
+bun run dev        # http://localhost:5140 (strictPort)
+bun run build      # tsc -b && vite build → dist/
+bun run preview    # serve dist/ on http://localhost:4173
+bun run typecheck  # tsc --noEmit
+bun run format     # prettier --write "src/**/*.{ts,tsx,css}"
+```
+
+Bun only — do not use npm/yarn/pnpm (the lockfile is `bun.lock`). There is no
+test suite: this is a static page, so verification is `bun run build` plus a
+visual check at 1440px and 390px.
+
+### Dependencies require GitHub Packages auth
+
+The `@sudobility/*` packages (`design`, `seo_lib`) are hosted on GitHub Packages
+— `.npmrc` points the `@sudobility` scope at `https://npm.pkg.github.com`, which
+requires authentication even to read. Before a fresh `bun install`, make a
+GitHub personal access token with `read:packages` available to the installer,
+e.g.:
+
+```bash
+export BUN_AUTH_TOKEN=<token>   # or add //npm.pkg.github.com/:_authToken=<token> to ~/.npmrc
 ```
 
 ## Deployment
 
-Cloudflare Pages, via `wrangler.toml` (`pages_build_output_dir = "./dist"`).
-Build command `bun run build`.
+Cloudflare Pages, via `wrangler.toml` (`name = "raidr"`,
+`pages_build_output_dir = "./dist"`). Build command `bun run build`.
+
+`functions/_middleware.js` is a Cloudflare Pages Function
+(`@sudobility/seo_lib/middleware`) that injects prerendered SEO snapshots into
+the live `index.html` shell, canonicalizes trailing slashes, and tags bare-shell
+routes `noindex`.
+
+## SEO & prerendering
+
+`bun run generate` runs the SEO/snapshot pipeline (it pulls helper scripts from
+[`johnqh/workflows`](https://github.com/johnqh/workflows) at runtime):
+
+- `process:static` — process static files
+- `generate:sitemap` — write `public/sitemap.xml` / `robots.txt` from `seo.config.mjs`
+- `prerender:install` — install Playwright Chromium
+- `prerender` (`scripts/prerender.mjs`) — drive the **running** dev app with
+  headless Chromium and write committed content snapshots to `public/html/<route>/`
+
+The prerender step needs the app running first (`bun run dev`); it drives
+`http://localhost:5140` by default (override with `GENERATE_ORIGIN`).
 
 ## Localization
 

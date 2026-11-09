@@ -26,19 +26,27 @@ only describes and links to them.
 
 ## Tech stack
 
-- React 19 + TypeScript + Vite
+- React 19 + TypeScript + Vite 7
 - Tailwind 3 with `createTailwindPreset()` from `@sudobility/design`
 - `react-i18next` + `i18next-http-backend` (en populated, 15 locales wired)
+- `@sudobility/seo_lib` for runtime `<SEOHead>` and the Pages SEO middleware
+- `react-router-dom` `BrowserRouter` wraps the app (seo_lib needs the router
+  context) but routing is still manual — see "Structure" below
 - Cloudflare Pages (`wrangler.toml`)
 - Bun for everything. Never npm/yarn/pnpm.
+
+The `@sudobility/*` deps come from **GitHub Packages** (`.npmrc` scopes
+`@sudobility` to `npm.pkg.github.com`), which needs a `read:packages` token to
+install — a fresh `bun install` fails without one.
 
 ## Structure
 
 ```
 index.html                SEO/OG meta, IBM Plex from Google Fonts, <html class="dark">
 src/
-  main.tsx                configureTheme(radiographTheme) + injects generateThemeCSS
+  main.tsx                configureTheme + generateThemeCSS; BrowserRouter + seo_lib SEOHead
   App.tsx                 top bar, section order, footer (+ its REPOS list), 404
+  seoHead.ts              seoHeadConfig for @sudobility/seo_lib (VITE_APP_NAME/DOMAIN)
   i18n.ts                 locale list + http backend
   index.css               radiographic tokens, plate surface, exposure animation
   data/capture.ts         REAL request rows from react-sample.zip
@@ -46,15 +54,21 @@ src/
     CapturePlate.tsx      the signature: waterfall as radiograph
     Hero.tsx
     Sections.tsx          all content sections
-    primitives.tsx        Section / Code / Note (+ RepoLink, REPO_BASE)
+    primitives.tsx        Section / Code / Note (+ RepoLink, REPO_BASE = github.com/johnqh)
 public/locales/en/translation.json    all prose
 public/                   icons, og-image, sitemap.xml, robots.txt, site.webmanifest
+functions/_middleware.js  Cloudflare Pages Function: seo_lib middleware (snapshot injection)
+scripts/prerender.mjs     headless-Chromium SEO snapshot generator (bun run generate)
+seo.config.mjs            routes/sitemap config for the generate:sitemap script
 tailwind.config.js        preset + font-cond / tracking-plate / max-w-readable only
 wrangler.toml             Cloudflare Pages, output ./dist
 ```
 
-There is no router: `App` renders the page at `/` and a 404 view (which
-rewrites the URL to `/404`) everywhere else.
+Routing is manual, not via react-router: `App` reads `window.location.pathname`
+and renders the landing page for `/` and bare language roots (`/en`, `/zh-hant`,
+…, matched by regex — these are what the sitemap/prerender crawl), and the 404
+view (which rewrites the URL to `/404`) everywhere else. `BrowserRouter` is
+mounted only because `@sudobility/seo_lib` needs the router context.
 
 ## Commands
 
@@ -73,6 +87,13 @@ bun run typecheck
 | `bun run preview` | serve `dist/` on http://localhost:4173 | serves 200 |
 | `bunx prettier --check "src/**/*.{ts,tsx,css}"` | format check | passes |
 | `bun run format` | the same glob with `--write` (rewrites files) | — |
+| `bun run generate` | SEO/snapshot pipeline (needs `bun run dev` running first) | — |
+
+`bun run generate` chains `process:static` → `generate:sitemap` →
+`prerender:install` (Playwright Chromium) → `prerender`. The first two pull
+helper scripts from `johnqh/workflows` over the network at runtime; `prerender`
+(`scripts/prerender.mjs`) drives the running dev app (`GENERATE_ORIGIN`, default
+`http://localhost:5140`) and writes committed snapshots to `public/html/<route>/`.
 
 There is no lint script.
 
@@ -169,11 +190,6 @@ section; the effect only works once.
 
 ## Related projects
 
-- `raidr_extension` — the capture extension
-- `raidr_cli` — reconstruction CLI and the agent skill
-- `raidr_processor` — bundle format and pure analysis
-- `raidr_crawler` — headless crawler, analysis pre-pass, raidr-publish skill
-- `raidr_types` / `raidr_client` / `raidr_lib` — shared types, API client, app business logic
-- `raidr_api` — catalog CRUD and the hosted MCP endpoint
-- `raidr_app` — catalog web app; owns `scripts/push_all.sh`, the release script
-- `sudobility` — the landing-page template this follows
+See "Where it sits in the raidr family" above for the full list. The landing
+page follows the `sudobility` template; `raidr_app` owns the release script
+(`scripts/push_all.sh`), which processes this repo last.
