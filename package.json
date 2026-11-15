@@ -1,7 +1,7 @@
 {
   "name": "raidr_web",
   "private": true,
-  "version": "0.1.24",
+  "version": "0.1.25",
   "type": "module",
   "scripts": {
     "dev": "vite",
@@ -17,8 +17,8 @@
     "generate": "bun run process:static && bun run generate:sitemap && bun run prerender:install && bun run prerender"
   },
   "dependencies": {
-    "@sudobility/design": "^1.1.71",
-    "@sudobility/seo_lib": "^0.0.52",
+    "@sudobility/design": "^1.1.72",
+    "@sudobility/seo_lib": "^0.0.53",
     "i18next": "~26.3.1",
     "i18next-browser-languagedetector": "~8.2.1",
     "i18next-http-backend": "~4.0.4",
